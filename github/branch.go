@@ -26,7 +26,7 @@ func (b *Branch) LongName() string {
 func (b *Branch) PushTarget(owner string, preferUpstream bool) (branch *Branch) {
 	var err error
 	pushDefault, _ := git.Config("push.default")
-	if pushDefault == "upstream" || pushDefault == "tracking" {
+	if pushDefault == "upstream" || pushDefault == "tracking" || pushDefault == "simple" {
 		branch, err = b.Upstream()
 		if err != nil {
 			return
